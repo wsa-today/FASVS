@@ -1,0 +1,95 @@
+// COLORS
+
+$white:                     #ffffff;
+$primary-color:             #FFFBF0;
+$secondary-color:           #ABB7D5;
+
+$text-color:                #3D3D3D;
+$black:                     #000000;
+
+
+// SIZES
+
+$f1:                        72px;
+$f2:                        48px;
+$f3:                        40px;
+$f4:                        32px;
+$f5:                        21px;
+$f6:                        15px;
+$fp:                        16px;
+$fps:                       14px;
+
+// FONTS
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+
+@font-face {
+ font-family: 'Berghan';
+ src: url('../fonts/Berghan-Regular.woff2') format('woff2');
+}
+
+@mixin heading($font-family, $color, $size, $font-weight: '500', $transform: 'none', $spacing: 0 ){
+    font-family:      $font-family;
+    color:            $color;
+    font-size:        $size;
+    font-weight:      $font-weight;
+    text-transform:   $transform;
+    letter-spacing:   $spacing;
+}
+
+
+@mixin h1{ @include heading('Berghan', $black, $f1) }
+@mixin h2{ @include heading('Berghan', $black, $f2) }
+@mixin h3{ @include heading('Berghan', $black, $f3) }
+@mixin h4{ @include heading('Berghan', $black, $f4) }
+@mixin h5{ @include heading('Syne', $black, $f5) }
+@mixin h6{ @include heading('Syne', $black, $f6, 'normal', uppercase, 0.2rem) }
+@mixin p{ @include heading('Syne', $black, $fp) }
+@mixin p-small{ @include heading('Syne', $black, $fps) }
+
+@mixin menu-item-l{
+    @include heading('Syne', $black, $f2, 'normal');
+}
+@mixin menu-item-s{
+    @include heading('Syne', $black, 24px, 'normal');
+}
+
+@mixin category-tag{
+    @include h6;
+    text-transform: uppercase;
+    display: flex;
+    align-items: flex-end;
+    &:before{
+        margin-right: 20px;
+        display: block;
+        content: '';
+        width: 15px;
+        height: 15px;
+        background-image: url(../imgs/icons/tag.svg);
+        background-size: contain;
+    }
+}
+
+
+//BUTTONS
+
+@mixin btn($secondary: false){
+    @if $secondary{
+        @include heading('Syne', $white, $f6, 500, uppercase, 0.2rem);
+        background: $black;
+    }
+    @else {
+        @include heading('Syne', $black, $f6, 500, uppercase, 0.2rem);
+        background-color: transparent;
+    }
+}
+
+
+//POSITION
+
+@mixin center-element() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

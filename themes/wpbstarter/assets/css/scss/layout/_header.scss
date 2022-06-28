@@ -1,0 +1,103 @@
+.fasvs-nav {
+  position: relative;
+  padding: 0 40px;
+  height: 150px;
+  background-color: $primary-color;
+  border-bottom: 1px solid $black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  &__logo {
+    text-align: center;
+  }
+  &__language {
+    text-align: right;
+  }
+  &__menu--button {
+    display: flex;
+    align-items: center;
+    h6 {
+      margin: 0 0 0 14px;
+      font-family: "Syne";
+      font-size: 17px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    box-sizing: border-box;
+    height: 36px;
+    cursor: pointer;
+    z-index: 2;
+
+    svg {
+      stroke: #000;
+      transition: 0.2s;
+
+      g {
+        &:first-child {
+          opacity: 1;
+          transition: opacity 0s 0.2s;
+
+          line {
+            transition: transform 0.2s 0.2s;
+            transform: translateY(0px);
+          }
+        }
+
+        &:last-child {
+          opacity: 0;
+          transition: opacity 0s 0.2s;
+
+          line {
+            transition: transform 0.2s;
+            transform: rotate(0deg);
+            transform-origin: center;
+          }
+        }
+      }
+    }
+
+    &.-menu-open svg {
+      g {
+        &:first-child {
+          opacity: 0;
+
+          line {
+            transition: transform 0.2s;
+
+            &:first-child {
+              transform: translateY(7px);
+            }
+
+            &:last-child {
+              transform: translateY(-7px);
+            }
+          }
+        }
+
+        &:last-child {
+          opacity: 1;
+
+          line {
+            transition: transform 0.2s 0.2s;
+
+            &:first-child {
+              transform: rotate(45deg);
+            }
+
+            &:last-child {
+              transform: rotate(-45deg);
+            }
+          }
+        }
+      }
+    }
+  }
+  & > div {
+    width: calc(100% / 3);
+  }
+  &.is-open {
+
+    background-color: $secondary-color;
+  }
+}

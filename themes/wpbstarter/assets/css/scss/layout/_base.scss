@@ -1,0 +1,14 @@
+body, header, footer{
+    background-color: $primary-color;
+}
+
+ul{
+    list-style-type: none;
+}
+
+body{
+    &.-menu-open{
+        height: 100vh;
+        overflow: hidden;
+    }
+}

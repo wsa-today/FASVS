@@ -1,0 +1,44 @@
+.fasvs-menu{
+    position: relative;
+    transition: opacity 0.3s ease;
+    transition: 0.5s;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    &.-menu-open{
+        opacity: 1;
+        padding: 140px;
+        height: calc(100vh - 150px);
+        background: $secondary-color;
+        display: flex;
+        justify-content: space-between;
+    }
+    &::after{
+        content: '';
+        width: 1px;
+        background-color: $black;
+        height: 100%;
+        display: block;
+        @include center-element;
+    }
+    &__primary{
+        width: 50%;
+        li{
+            margin-bottom: 16px;
+            a{
+                @include menu-item-l;
+            }
+        }
+    }
+    &__secondary{
+        padding-left: 142px;
+        width: 50%;
+       li{
+        margin-bottom: 16px;
+        a{
+            @include menu-item-s;
+
+        }
+       }
+    }
+}
